@@ -6,7 +6,7 @@ import com.iyxan23.eplk.lexer.models.Position
 import com.iyxan23.eplk.objects.EplkFunction
 import com.iyxan23.eplk.objects.EplkObject
 import com.iyxan23.eplk.objects.EplkVoid
-import com.tyron.compose.com.iyxan23.eplk.nodes.variable.ParameterListNode
+import com.iyxan23.eplk.nodes.variable.ParameterListNode
 
 open class FunctionDefinitionNode(
     open val functionName: String,

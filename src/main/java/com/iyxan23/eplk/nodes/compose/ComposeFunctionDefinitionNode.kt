@@ -1,4 +1,4 @@
-package com.tyron.compose.com.iyxan23.eplk.nodes.compose
+package com.iyxan23.eplk.nodes.compose
 
 import androidx.compose.runtime.Composer
 import com.iyxan23.eplk.interpreter.RealtimeResult
@@ -8,8 +8,8 @@ import com.iyxan23.eplk.nodes.FunctionDefinitionNode
 import com.iyxan23.eplk.nodes.StatementsNode
 import com.iyxan23.eplk.objects.EplkObject
 import com.iyxan23.eplk.objects.EplkVoid
-import com.tyron.compose.com.iyxan23.eplk.nodes.variable.ParameterListNode
-import com.tyron.compose.com.iyxan23.eplk.objects.NativeEplkObject
+import com.iyxan23.eplk.nodes.variable.ParameterListNode
+import com.iyxan23.eplk.objects.NativeEplkObject
 
 class ComposeFunctionDefinitionNode(
     override val functionName: String,

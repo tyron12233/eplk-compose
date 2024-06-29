@@ -1,4 +1,4 @@
-package com.tyron.compose.com.iyxan23.eplk.objects
+package com.iyxan23.eplk.objects
 
 import com.iyxan23.eplk.interpreter.Scope
 import com.iyxan23.eplk.objects.EplkObject

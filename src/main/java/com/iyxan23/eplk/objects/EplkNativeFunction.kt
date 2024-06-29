@@ -5,9 +5,9 @@ import com.iyxan23.eplk.interpreter.RealtimeResult
 import com.iyxan23.eplk.interpreter.Scope
 import com.iyxan23.eplk.lexer.models.Position
 import com.iyxan23.eplk.nodes.StatementsNode
-import com.tyron.compose.com.iyxan23.eplk.nodes.types.NULL_NODE
-import com.tyron.compose.com.iyxan23.eplk.nodes.variable.ParameterListNode
-import com.tyron.compose.com.iyxan23.eplk.nodes.variable.ParameterNode
+import com.iyxan23.eplk.nodes.types.NULL_NODE
+import com.iyxan23.eplk.nodes.variable.ParameterListNode
+import com.iyxan23.eplk.nodes.variable.ParameterNode
 
 
 

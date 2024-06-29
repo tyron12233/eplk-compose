@@ -16,7 +16,7 @@ import com.iyxan23.eplk.objects.EplkNativeFunction
 import com.iyxan23.eplk.objects.EplkNativeFunction.Companion.createParameters
 import com.iyxan23.eplk.objects.EplkObject
 import com.iyxan23.eplk.objects.EplkVoid
-import com.tyron.compose.com.iyxan23.eplk.nodes.compose.getComposer
+import com.iyxan23.eplk.nodes.compose.getComposer
 import java.lang.reflect.Method
 
 object ComposeDefinitions {

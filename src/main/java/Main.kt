@@ -31,7 +31,7 @@ import com.iyxan23.eplk.interpreter.StandardDefinitions
 import com.iyxan23.eplk.lexer.Lexer
 import com.iyxan23.eplk.nodes.Node
 import com.iyxan23.eplk.parser.Parser
-import com.tyron.compose.com.iyxan23.eplk.objects.NativeEplkObject
+import com.iyxan23.eplk.objects.NativeEplkObject
 import org.jetbrains.compose.splitpane.ExperimentalSplitPaneApi
 import org.jetbrains.compose.splitpane.HorizontalSplitPane
 import org.jetbrains.compose.splitpane.rememberSplitPaneState

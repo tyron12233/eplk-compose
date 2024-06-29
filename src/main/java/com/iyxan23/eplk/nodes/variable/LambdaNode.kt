@@ -1,4 +1,4 @@
-package com.tyron.compose.com.iyxan23.eplk.nodes.variable
+package com.iyxan23.eplk.nodes.variable
 
 import com.iyxan23.eplk.interpreter.RealtimeResult
 import com.iyxan23.eplk.interpreter.Scope

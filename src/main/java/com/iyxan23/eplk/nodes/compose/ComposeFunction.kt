@@ -1,4 +1,4 @@
-package com.tyron.compose.com.iyxan23.eplk.nodes.compose
+package com.iyxan23.eplk.nodes.compose
 
 import com.iyxan23.eplk.errors.EplkRuntimeError
 import com.iyxan23.eplk.interpreter.RealtimeResult
@@ -8,7 +8,7 @@ import com.iyxan23.eplk.nodes.StatementsNode
 import com.iyxan23.eplk.objects.EplkFunction
 import com.iyxan23.eplk.objects.EplkInteger
 import com.iyxan23.eplk.objects.EplkObject
-import com.tyron.compose.com.iyxan23.eplk.nodes.variable.ParameterListNode
+import com.iyxan23.eplk.nodes.variable.ParameterListNode
 
 open class ComposeFunction(
     override val parentScope: Scope,
