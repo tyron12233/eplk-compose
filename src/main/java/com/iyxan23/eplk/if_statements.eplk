@@ -1,0 +1,15 @@
+// This is a definitely useful piece of software right here, a very revolutionary one (being sarcastic)
+
+var number = random(0, 100)
+
+if (number < 50) {
+    print("Hmm it's less than 50: ")
+
+} elif (number < 75) {
+    print("hmmmmm, higher than 50 and less than 75: ")
+
+} else {
+    print("Cool, we got a number higher than 75! ")
+}
+
+println(number)

@@ -1,0 +1,89 @@
+** SYMBOLS **
+ - [] - Capture group
+ - * - Zero or more
+ - + - One or more
+ - ? - Zero or one
+ - | - Or
+ - // - A comment
+*************
+
+func-definition         = FUN IDENTIFIER PAREN_OPEN IDENTIFIER [COMMA IDENTIFIER]* PAREN_CLOSE NEWLINE* [[ARROW expression] | BRACES_OPEN statements BRACES_CLOSE]
+
+composable-func         = COMPOSABLE func-definition
+
+while-expression        = WHILE PAREN_OPEN expression PAREN_CLOSE [[BRACES_OPEN statements BRACES_CLOSE] | expression]
+
+for-expression          = FOR PAREN_OPEN expression1 SEMICOLON expression2 SEMICOLON expression3 PAREN_CLOSE [[BRACES_OPEN statements BRACES_CLOSE] | expression]
+
+if-expression           = IF PAREN_OPEN expression PAREN_CLOSE
+                          [
+                              // Multiline statements
+                              [BRACES_OPEN statements BRACES_CLOSE
+                                  elif-expression*
+                                  else-expression*
+                              ] |
+
+                              // Single line expression / statement
+                              [statements
+                                  elif-expression*
+                                  else-expression
+                              ]
+                          ]
+
+elif-expression         = ELIF PAREN_OPEN expression PAREN_CLOSE
+                          [
+                              // Multiline statements
+                              [BRACES_OPEN statements BRACES_CLOSE] |
+
+                              // Single line expression / statement
+                              statement
+                          ]
+
+else-expression         = ELSE
+                          [
+                              // Multiline statements
+                              [BRACES_OPEN statements BRACES_CLOSE] |
+
+                              // Single line expression / statement
+                              statement
+                          ]
+
+list-expression         = BRACKET_OPEN [expression [COMMA expression]]* BRACKET_CLOSE
+
+atom                    = INT_LITERAL                           |
+                          FLOAT_LITERAL                         |
+                          IDENTIFIER                            |
+                          STRING_LITERAL                        |
+                          [PAREN_OPEN expression* PAREN_CLOSE]  |
+                          [TRUE | FALSE]                        |
+                          list-expression                       |
+                          if-expression                         |
+                          for-expression                        |
+                          while-expression                      |
+                          fun-definition
+
+func-call               = atom [PAREN_OPEN [expression [COMMA expression]*] PAREN_CLOSE]
+
+index                   = func-call [BRACKET_OPEN expression BRACKET_CLOSE]
+
+increment-decrement     = index [DOUBLE_PLUS | DOUBLE_MINUS]
+
+power                   = increment-decrement [POW factor]*
+factor                  = [[PLUS|MINUS] factor] | power
+term                    = factor [[MUL|DIV] factor]*
+arithmetic-expression   = term [[PLUS|MINUS] term]*
+
+comparison-expression   = NOT comparison-expression |
+                          arithmetic-expression [[comparison operators] arithmetic-expression]*
+
+expression              = VAR IDENTIFIER [EQUAL expression]? |
+                          IDENTIFIER EQUAL expression |
+                          IDENTIFIER [PLUS_EQUAL | MINUS_EQUAL | MUL_EQUAL | DIV_EQUAL] |
+                          comparison-expression [[AND|OR] comparison-expression]*
+
+statement               = RETURN expression? |
+                          CONTINUE |
+                          BREAK |
+                          expression
+
+statements              = NEWLINE* statement [NEWLINE+ statement]* NEWLINE*
