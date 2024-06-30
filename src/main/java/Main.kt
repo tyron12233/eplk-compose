@@ -32,6 +32,7 @@ import com.iyxan23.eplk.lexer.Lexer
 import com.iyxan23.eplk.nodes.Node
 import com.iyxan23.eplk.parser.Parser
 import com.iyxan23.eplk.objects.NativeEplkObject
+import com.tyron.compose.com.iyxan23.eplk.Test
 import org.jetbrains.compose.splitpane.ExperimentalSplitPaneApi
 import org.jetbrains.compose.splitpane.HorizontalSplitPane
 import org.jetbrains.compose.splitpane.rememberSplitPaneState
@@ -46,17 +47,18 @@ val scope = StandardDefinitions.generateScope("<SHELL>", parentScope = composeSc
 fun main() {
 
     val template = """
-        composable fun App(title) {
-            Column(
-                content = () {
-                    Text(title)
-                    Text("Hi")
-                }
-            )
-        }
+composable fun App() {
+    var count = remember(calculation = () { mutableStateOf(0) })
 
-        
-        App("Title")
+	Button(
+        text = count,
+        onClick = () {
+            count.setValue(3123)
+        }
+    )
+}
+
+App()
     """.trimIndent()
 
     SwingUtilities.invokeLater {
@@ -65,7 +67,6 @@ fun main() {
         val panel = ComposePanel()
 
         panel.setContent {
-
             var code = remember { mutableStateOf(template) }
 
             var interpreterState = remember { mutableStateOf(InterpreterState()) }

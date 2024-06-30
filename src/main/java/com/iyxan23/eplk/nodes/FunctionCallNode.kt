@@ -16,6 +16,10 @@ class FunctionCallNode(
     override val endPosition: Position
 ) : Node() {
 
+    override fun toString(): String {
+        return "FunctionCall ${nodeToCall}(${arguments.joinToString(", ")})"
+    }
+
     override fun visit(scope: Scope): RealtimeResult<EplkObject> {
         val result = RealtimeResult<EplkObject>()
 
@@ -43,7 +47,7 @@ class FunctionCallNode(
             // is default value?
             val isDefault = argument is VarAssignNode
             if (isDefault) {
-                val varAssignNode = argument as VarAssignNode
+                val varAssignNode = argument
 
                 val variableName = varAssignNode.variableName
                 val variableValue = varAssignNode.value

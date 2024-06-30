@@ -399,4 +399,30 @@ class ParserTest {
 
         assert(!result.hasError) { println(result.error!!.toString()) }
     }
+
+    @Test
+    fun fieldAccessExpr() {
+        val code = """
+            var a = object.field
+        """.trimIndent()
+        val tokens = Lexer(filename, code).doLexicalAnalysis().tokens!!
+        val result = Parser(tokens).parse()
+
+        Utils.prettyPrintNode(result.node!!)
+
+        assert(!result.hasError) { println(result.error!!.toString()) }
+    }
+
+    @Test
+    fun incrementFieldAccessExpr() {
+        val code = """
+            object.field += 1
+        """.trimIndent()
+        val tokens = Lexer(filename, code).doLexicalAnalysis().tokens!!
+        val result = Parser(tokens).parse()
+
+        Utils.prettyPrintNode(result.node!!)
+
+        assert(!result.hasError) { println(result.error!!.toString()) }
+    }
 }

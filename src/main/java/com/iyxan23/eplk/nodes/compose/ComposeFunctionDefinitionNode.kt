@@ -19,6 +19,10 @@ class ComposeFunctionDefinitionNode(
     override val endPosition: Position,
 ) : FunctionDefinitionNode(functionName, parameters, statements, startPosition, endPosition) {
 
+    override fun toString(): String {
+        return "ComposeFunctionDefinitionNode(functionName=$functionName, parameters=$parameters, statements=$statements, startPosition=$startPosition, endPosition=$endPosition)"
+    }
+
     override fun visit(scope: Scope): RealtimeResult<EplkObject> {
         scope.symbolTable.symbols[functionName] =
             ComposeFunction(scope, functionName, parameters, statements)
